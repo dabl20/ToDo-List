@@ -7,18 +7,15 @@
     <title>My first ToDo List!</title>
   </head>
   <body>
-    <input type="text" placeholder="Добавить в список">
-    <button id="button">+</button>
-    <ol id="list">
-    </ol>
+    <input type="text" onchange="item(this.value);" placeholder="Добавить в список">
+    <input type="button" value="+">
+    <ol id="list"></ol>
 
     <script>
-      console.log('start');
-
-      document.getElementById('button').onclick = function(){
-        let liLast = document.createElement('li');
-        liLast.innerHTML = 'new';
-        list.append(liLast);
+      function item(name){
+        let addItem = document.createElement('li');
+        addItem.innerHTML = name;
+        list.append(addItem);
       }
     </script>
   </body>
