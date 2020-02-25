@@ -1,20 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>My first ToDo List!</title>
+    <style>
+		input:checked + span {
+			text-decoration: line-through;
+		};
+	</style>
   </head>
   <body>
     <input type="text" onchange="item(this.value);" placeholder="Добавить в список">
     <input type="button" value="+">
-    <ol id="list"></ol>
+    <ul id="list" style="list-style: none; margin-left: 0; padding-left: 0;"></ul>
 
     <script>
       function item(name){
         let addItem = document.createElement('li');
-        addItem.innerHTML = name;
+        addItem.innerHTML = '<input type="checkbox"><span>' +name+ '</span>';
         list.append(addItem);
       }
     </script>
