@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>My first ToDo List!</title>
-    <style>
-      input:checked + span {
-          text-decoration: line-through;
-      };
-    </style>
-  </head>
-  <body>
-    <form action="#">
-      <input type="text" onchange="item(this.value); reset();" placeholder="Добавить в список" autofocus>
-      <input type="button" value="Записать">
-    </form>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>My first ToDo List!</title>
+  <style>
+    input:checked+span {
+      text-decoration: line-through;
+    };
+  </style>
+</head>
 
-    <ul id="list" style="list-style: none; margin-left: 0; padding-left: 0;"></ul>
+<body>
+  <form action="#">
+    <input type="text" onchange="item(this.value); reset();" placeholder="Добавить в список" autofocus>
+    <input type="button" value="Записать">
+  </form>
 
-    <script>
-      function item(name){
-        let addItem = document.createElement('li');
-        addItem.innerHTML = '<label><input type="checkbox"><span>' +name+ '</span></label>';
-        list.append(addItem);
-      }
-    </script>
-  </body>
-</html>
+  <ul id="list" style="list-style: none; margin-left: 0; padding-left: 0;"></ul>
+
+  <script>
+    function item(name) {
+      let addItem = document.createElement('li');
+      addItem.innerHTML = `<label><input type="checkbox"><span> ${name} </span></label>`;
+      list.append(addItem);
+    }
+  </script>
+</body></html>
