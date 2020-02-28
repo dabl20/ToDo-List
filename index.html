@@ -12,9 +12,9 @@
 </head>
 
 <body>
-  <form>
-    <input type="text" onchange="createItem(this.value); reset();" placeholder="Добавить в список" autofocus>
-    <input type="button" value="Записать">
+  <form onchange="createItem(document.querySelector('#textForm').value);">
+    <input id="textForm" type="text" placeholder="Добавить в список" autofocus>
+    <input type="submit" value="Записать">
   </form>
 
   <ul id="list" style="list-style: none; margin-left: 0; padding-left: 0;"></ul>
