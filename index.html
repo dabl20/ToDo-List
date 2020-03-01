@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>My first ToDo List!</title>
   <style>
+    html {background-color: grey;}
     input:checked+span {
       text-decoration: line-through;
     }
@@ -12,7 +13,7 @@
 </head>
 
 <body>
-  <form onchange="createItem(document.querySelector('#textForm').value);">
+  <form onsubmit="createItem(document.querySelector('#textForm').value);">
     <input id="textForm" type="text" placeholder="Добавить в список" autofocus>
     <input type="submit" value="Записать">
   </form>
