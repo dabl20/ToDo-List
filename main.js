@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
   let items = [];
-  items = JSON.parse(localStorage.items);
-  for (let el of items) {
-    addItem(el);
+  if (localStorage.items != undefined) {
+    items = JSON.parse(localStorage.items);
+    for (let el of items) {
+      addItem(el);
+    }
   }
 
   function Item(data) {
