@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   let items = [];
   items = JSON.parse(localStorage.items);
   for (let el of items) {
@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
     this.check = false;
   }
 
-  document.querySelector('form').addEventListener('submit', function () {
-    let data = textForm.value;
+  document.querySelector('form').addEventListener('submit', function() {
+    let data = document.querySelector('input[type="text"]').value;
     items.unshift(new Item(data));
     localStorage.items = JSON.stringify(items);
     addItem(data);
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     li = document.createElement('li');
     li.setAttribute('id', items.indexOf(data));
     li.innerHTML = `<button>DEL</button><label><input type="checkbox" ${stat}><span> ${data.text} </span></label>`;
-    list.append(li);
+    document.querySelector('ul').append(li);
     li.querySelector('input[type="checkbox"]').addEventListener('change', function() {
       if(this.checked) {
           items[items.indexOf(data)].check = true;
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
       localStorage.items = JSON.stringify(items);
     });
     li.querySelector('button').addEventListener('click', function() {
-      list.removeChild(this.parentNode);
+      document.querySelector('ul').removeChild(this.parentNode);
       items.splice(items.indexOf(data), 1);
       localStorage.items = JSON.stringify(items);
     });
