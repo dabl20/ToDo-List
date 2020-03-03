@@ -4,17 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>My first ToDo List!</title>
-  <style>
-    html {background-color: grey;}
-    input:checked+span {
-      text-decoration: line-through;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <form onsubmit="createItem(document.querySelector('#textForm').value);">
-    <input id="textForm" type="text" placeholder="Добавить в список" autofocus>
+  <form>
+    <input type="text" id="textForm" placeholder="Добавить в список" autofocus>
     <input type="submit" value="Записать">
   </form>
 
