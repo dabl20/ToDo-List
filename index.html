@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>My first ToDo List!</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <form>
-    <input type="text" placeholder="Добавить в список" autofocus>
-    <input type="submit" value="Записать">
-  </form>
 
-  <ul></ul>
+<body>
+  <article>
+    <section>
+      <form>
+        <input type="submit" value="ADD">
+        <input type="text" placeholder="Добавить в список" autofocus>
+      </form>
+    </section>
+    <section>
+      <label>Показать:
+        <select>
+          <option value="all" selected>ALL</option>
+          <option value="checked">CHECK</option>
+          <option value="unchecked">UNCHECK</option>
+        </select>
+      </label>
+    </section>
+    <section>
+      <ul></ul>
+    </section>
+  </article>
 
   <script src="main.js"></script>
-</body></html>
+</body>
+
+</html>
