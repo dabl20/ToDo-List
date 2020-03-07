@@ -1,1 +1,16 @@
-ul {list-style: none; margin-left: 0; padding-left: 0; overflow-wrap: break-word;}
+* {margin: 2px;}
+article {
+  display: grid;
+  grid-template-areas: "a";
+  grid-gap: 10px;
+  grid-auto-columns: 600px;
+  justify-content: center;
+}
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left:0;
+  overflow-wrap: break-word;
+}
+li:nth-child(odd) {background-color: darkgray;}
+li:nth-child(even) {background-color: lightgray;}
