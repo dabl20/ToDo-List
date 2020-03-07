@@ -1,2 +1,2 @@
 html {background-color: darkgreen;}
-ul {list-style: none; margin-left: 0; padding-left: 0;}
+ul {list-style: none; margin-left: 0; padding-left: 0; overflow-wrap: break-word;}
