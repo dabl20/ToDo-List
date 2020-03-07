@@ -6,17 +6,17 @@ document.addEventListener('DOMContentLoaded', function () {
     items.forEach(element => addItem(element));
   }
 
+  document.forms[0].addEventListener('submit', function () {
+    let data = document.querySelector('input[type="text"]').value;
+    items.push(new Item(data));
+    localStorage.items = JSON.stringify(items);
+    addItem(data);
+  });
+
   function Item(data) {
     this.text = data;
     this.check = false;
   }
-
-  document.forms[0].addEventListener('submit', function () {
-    let data = document.querySelector('input[type="text"]').value;
-    items.unshift(new Item(data));
-    localStorage.items = JSON.stringify(items);
-    addItem(data);
-  });
 
   function addItem(data) {
     let li, stat;
@@ -32,8 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
     li.querySelector('input[type="checkbox"]').addEventListener('change', function () {
       if (this.checked) {
         items[items.indexOf(data)].check = true;
+        this.setAttribute('checked', '');
       } else {
         items[items.indexOf(data)].check = false;
+        this.removeAttribute('checked', '');
       }
       localStorage.items = JSON.stringify(items);
     });
@@ -44,22 +46,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  document.querySelector('select').addEventListener('change', (event) => {
+  document.querySelector('select').addEventListener('click', (event) => {
     document.querySelectorAll('input[type="checkbox"]').forEach(element => {
-      if (event.target.value == 'all') {
-        element.parentElement.parentElement.removeAttribute('hidden', '');
-      }
-      if (event.target.value == 'checked') {
-        element.parentElement.parentElement.removeAttribute('hidden', '');
-        if (element.getAttribute('checked') == null) {
-          element.parentElement.parentElement.setAttribute('hidden', '');
-        }
-      }
-      if (event.target.value == 'unchecked') {
-        element.parentElement.parentElement.removeAttribute('hidden', '');
-        if (element.getAttribute('checked') == '') {
-          element.parentElement.parentElement.setAttribute('hidden', '');
-        }
+      switch (event.target.value) {
+        case 'all':
+          element.parentElement.parentElement.removeAttribute('hidden', '');
+          break;
+        case 'checked':
+          element.parentElement.parentElement.removeAttribute('hidden', '');
+          if (element.getAttribute('checked') == null) {
+            element.parentElement.parentElement.setAttribute('hidden', '');
+          }
+          break;
+        case 'unchecked':
+          element.parentElement.parentElement.removeAttribute('hidden', '');
+          if (element.getAttribute('checked') == '') {
+            element.parentElement.parentElement.setAttribute('hidden', '');
+          }
+          break;
       }
     });
   });
