@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-
   var items = [];
+
   if (localStorage.items != undefined) {
     items = JSON.parse(localStorage.items);
     items.forEach(element => addItem(element));
@@ -47,21 +47,20 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   document.querySelector('select').addEventListener('click', (event) => {
-    document.querySelectorAll('input[type="checkbox"]').forEach(element => {
+    document.querySelector('ul').innerHTML='';
+    items.forEach(element => {
       switch (event.target.value) {
         case 'all':
-          element.parentElement.parentElement.removeAttribute('hidden', '');
+          addItem(element);
           break;
         case 'checked':
-          element.parentElement.parentElement.removeAttribute('hidden', '');
-          if (element.getAttribute('checked') == null) {
-            element.parentElement.parentElement.setAttribute('hidden', '');
+          if (element.check == true) {
+            addItem(element);
           }
           break;
         case 'unchecked':
-          element.parentElement.parentElement.removeAttribute('hidden', '');
-          if (element.getAttribute('checked') == '') {
-            element.parentElement.parentElement.setAttribute('hidden', '');
+          if (element.check == false) {
+            addItem(element);
           }
           break;
       }
