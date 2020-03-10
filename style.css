@@ -1,10 +1,16 @@
-* {margin: 2px;}
+* {margin: 2px; box-sizing: border-box;}
 article {
-  display: grid;
-  grid-template-areas: "a";
-  grid-gap: 10px;
-  grid-auto-columns: 600px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
   justify-content: center;
+}
+section {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 600px;
 }
 ul {
   list-style: none;
@@ -14,3 +20,5 @@ ul {
 }
 li:nth-child(odd) {background-color: darkgray;}
 li:nth-child(even) {background-color: lightgray;}
+li {border: 1px solid gray;}
+li:hover {background-color: gray;}
