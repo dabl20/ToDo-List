@@ -25,3 +25,7 @@ li:nth-child(odd) {background-color: darkgray;}
 li:nth-child(even) {background-color: lightgray;}
 li {border: 1px solid gray;}
 li:hover {background-color: gray;}
+li input:checked+span{
+  text-decoration: line-through;
+  opacity: .3;
+}
