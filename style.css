@@ -1,4 +1,7 @@
 * {margin: 2px; box-sizing: border-box;}
+body {
+  background-color: #e6e6e6;
+}
 article {
   width: 100%;
   padding-right: 15px;
