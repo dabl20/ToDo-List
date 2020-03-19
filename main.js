@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     li = document.createElement('li');
     li.setAttribute('id', items.indexOf(data));
-    li.innerHTML = `<button>DEL</button><label><input type="checkbox" ${stat}><span> ${data.text} </span></label>`;
+    li.innerHTML = `<input type="checkbox" ${stat}><span>${data.text}</span><span class="delButton fas fa-trash-alt"></span>`;
     document.querySelector('ul').append(li);
     li.querySelector('input[type="checkbox"]').addEventListener('change', function () {
       if (this.checked) {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       localStorage.items = JSON.stringify(items);
     });
-    li.querySelector('button').addEventListener('click', function () {
+    li.querySelector('.delButton').addEventListener('click', function () {
       document.querySelector('ul').removeChild(this.parentNode);
       items.splice(items.indexOf(data), 1);
       localStorage.items = JSON.stringify(items);
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   document.querySelector('select').addEventListener('click', (event) => {
-    document.querySelector('ul').innerHTML='';
+    document.querySelector('ul').innerHTML = '';
     items.forEach(element => {
       switch (event.target.value) {
         case 'all':
