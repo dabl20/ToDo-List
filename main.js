@@ -3,14 +3,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (localStorage.items != undefined) {
     items = JSON.parse(localStorage.items);
+    renderList()
+  }
+
+  function renderList() {
     items.forEach(element => addItem(element));
   }
 
-  document.forms[0].addEventListener('submit', function () {
+  document.forms[0].addEventListener('submit', function (event) {
+    event.preventDefault();
+    document.querySelector('ul').innerHTML = '';
     let data = document.querySelector('input[type="text"]').value;
     items.push(new Item(data));
     localStorage.items = JSON.stringify(items);
-    addItem(data);
+    renderList();
+    this.reset();
   });
 
   function Item(data) {
@@ -19,17 +26,26 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function addItem(data) {
-    let li, stat;
-    if (data.check) {
-      stat = 'checked';
-    } else {
-      stat = '';
-    };
-    li = document.createElement('li');
+    let li = document.createElement('li');
     li.setAttribute('id', items.indexOf(data));
-    li.innerHTML = `<input type="checkbox" ${stat}><span>${data.text}</span><span class="delButton fas fa-trash-alt"></span>`;
     document.querySelector('ul').append(li);
-    li.querySelector('input[type="checkbox"]').addEventListener('change', function () {
+
+    let input = document.createElement('input');
+    input.setAttribute('type', 'checkbox');
+    if (data.check) {
+      input.setAttribute('checked', '');
+    };
+    li.append(input);
+
+    let text = document.createElement('span');
+    text.textContent = data.text;
+    li.append(text);
+
+    let del = document.createElement('span');
+    del.classList = 'delButton fas fa-trash-alt';
+    li.append(del);
+
+    input.addEventListener('change', function () {
       if (this.checked) {
         items[items.indexOf(data)].check = true;
         this.setAttribute('checked', '');
