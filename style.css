@@ -16,30 +16,29 @@ article {
 }
 
 header {
-  background-color: #ee2e31;
-  font-family: 'Lobster', cursive;
   text-align: center;
   border-radius: 0 0 20px 20px;
-  padding: 10px;
+  padding: 0 30px;
   box-shadow: 2px 2px 2px #071e22;
 }
 
 h1 {
-  background-color: #f4c095;
-  border-radius: 10px;
-  margin: 5px;
-  padding: 5px;
-  font-size: 42px;
-  box-shadow: 2px 2px 2px #1d7874;
+  font-family: 'Lobster', cursive;
+  margin: 10px auto;
+  font-size: 48px;
   text-shadow: 2px 2px 2px #ee2e31;
-  max-width: 250px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
-input[type="text"] {
-  margin: 5px;
-  min-width: 75%;
+form input[type="text"] {
+  background-color: antiquewhite;
+  font-size: larger;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ee2e31;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 ul {
@@ -58,6 +57,8 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #f4c095;
+  text-shadow: 2px 2px 2px #071e22;
 }
 
 li:nth-child(odd) {
@@ -84,4 +85,8 @@ li input:checked+span {
 input[type="checkbox"] {
   float: left;
   margin: 5px;
+}
+
+footer label {
+  float: right;
 }
