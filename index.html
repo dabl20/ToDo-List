@@ -16,6 +16,12 @@
   <article>
     <header>
       <h1>Список ToDo</h1>
+      <form>
+        <input type="text" class="fas" placeholder=" Добавить в список" maxlength="140" required autofocus>
+      </form>
+    </header>
+    <ul id="list"></ul>
+    <footer>
       <label><i class="fas fa-eye"></i>
         <select>
           <option value="all" selected>Все задачи</option>
@@ -23,12 +29,7 @@
           <option value="unchecked">Осталось</option>
         </select>
       </label>
-      <form>
-        <span><i class="fas fa-pencil-alt"></i></span>
-        <input type="text" placeholder="Добавить в список" maxlength="140" required autofocus>
-      </form>
-    </header>
-    <ul></ul>
+    </footer>
   </article>
 
   <script src="main.js"></script>
