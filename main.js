@@ -30,18 +30,21 @@ document.addEventListener('DOMContentLoaded', function () {
     li.setAttribute('id', items.indexOf(data));
     document.querySelector('ul').append(li);
 
+    let label = document.createElement('label');
+    li.append(label);
+
     let input = document.createElement('input');
     input.setAttribute('type', 'checkbox');
     if (data.check) {
       input.setAttribute('checked', '');
     };
-    li.append(input);
+    label.append(input);
 
     let text = document.createElement('span');
     text.textContent = data.text;
-    li.append(text);
+    label.append(text);
 
-    let del = document.createElement('span');
+    let del = document.createElement('i');
     del.classList = 'delButton fas fa-trash-alt';
     li.append(del);
 
