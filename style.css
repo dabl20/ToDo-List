@@ -29,6 +29,13 @@ h1 {
   text-shadow: 2px 2px 2px #ee2e31;
 }
 
+::placeholder {  
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  font-size: larger;
+  color: #679289;
+}
+
 form input[type="text"] {
   background-color: antiquewhite;
   font-size: larger;
@@ -49,16 +56,22 @@ ul {
 }
 
 li {
-  padding: 5px;
-  margin: 5px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px #ee2e31;
-  min-height: 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  min-height: 25px;
   color: #f4c095;
+  box-shadow: 2px 2px 2px #071e22;
+  transition: 1s;
+}
+
+li:hover {
+  box-shadow: 2px 2px 2px #ee2e31;
   text-shadow: 2px 2px 2px #071e22;
+  transition: .2s;
 }
 
 li:nth-child(odd) {
@@ -69,22 +82,28 @@ li:nth-child(even) {
   background-color: #679289;
 }
 
-li:hover {
-  border-color: #ee2e31;
+li input[type="checkbox"] {
+  opacity: 0;
 }
 
-li input+span {
-  min-width: 85%;
+li label {
+  width: 100%;
+  padding: 5px;
 }
 
-li input:checked+span {
+li input[type="checkbox"]+span:hover {
+  text-decoration: line-through;
+  transition: 2s;
+}
+
+li input[type="checkbox"]:checked+span {
   text-decoration: line-through;
   opacity: .3;
+  transition: .4s;
 }
 
-input[type="checkbox"] {
-  float: left;
-  margin: 5px;
+.delButton:hover {
+  color: #ee2e31;
 }
 
 footer label {
